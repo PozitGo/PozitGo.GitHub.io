@@ -1,0 +1,22 @@
+{
+  "name": "practica",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "start": "http-server"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/PozitGo/PozitGo.GitHub.io.git"
+  },
+  "author": "PozitGo",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/PozitGo/PozitGo.GitHub.io/issues"
+  },
+  "homepage": "https://github.com/PozitGo/PozitGo.GitHub.io#readme",
+  "dependencies": {
+    "http-server": "^14.1.1"
+  }
+}
