@@ -8,6 +8,16 @@
         <link rel="manifest" href="manifest.json">
         <title>AGRIDERA | Main</title>
     </head>
+    <script>
+               if ('serviceWorker' in navigator) {
+           navigator.serviceWorker
+           .register('/sw.js')
+           .then(function() {
+               console.log('Service worker registered!');
+           });
+       }
+
+    </script>
     <body>
         <header class="wrapper header">
             <nav class="header-nav">
