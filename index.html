@@ -8,14 +8,43 @@
         <link rel="manifest" href="manifest.json">
         <title>AGRIDERA | Main</title>
     </head>
-    <script>
-               if ('serviceWorker' in navigator) {
-           navigator.serviceWorker
-           .register('/sw.js')
-           .then(function() {
-               console.log('Service worker registered!');
-           });
+    <script defer>
+       function askPermission() {
+           return new Promise(function (resolve, reject) {
+               const permissionResult = Notification.requestPermission(function (result) {
+                   resolve(result);
+               });
+
+
+               if (permissionResult) {
+                   permissionResult.then(resolve, reject);
+               }
+           })
+               .then(function (permissionResult) {
+                   throw new Error('We weren\'t granted permission.');
+               });
        }
+
+
+       if ('serviceWorker' in navigator) {
+           navigator.serviceWorker
+               .register('/sw.js')
+               .then(function () {
+                   console.log('Service worker registered!');
+               });
+       }
+
+
+       navigator.serviceWorker.ready.then(registration => {
+           if ('PushManager' in window) {
+               document.querySelector('button.subscribe-for-push')
+                   .addEventListener('click', () => {
+                       if (confirm("Ви згодні отримувати повідомлення?") == true) {
+                           askPermission();
+                       }
+                   });
+           }
+       });
 
     </script>
     <body>
@@ -178,7 +207,10 @@
 
             <section class="footer-final-container">
                 <p>AGRIDERA SEEDS & AGRICULTURE LTD. © 2020</p>
+                <button class="subscribe-for-push"><img
+                        src="assets/img/icon/iconNotify.png" alt=""></button>
             </section>
+
         </footer>
     </body>
 </html>

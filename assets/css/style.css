@@ -272,12 +272,15 @@ input {
     align-items: center;
     padding-top: 18px;
     padding-bottom: 13px;
+    padding-left: 10px;
+    padding-right: 10px;
 }
 
 .footer-final-container>p {
     color: #B9B9B9;
     font-weight: 400;
     font-size: 14px;
+    padding-right: 15px;
 }
 
 .Tomato-header-img {
@@ -778,6 +781,10 @@ td {
     color: #324950;
     font-size: 20px;
     font-weight: 550;
+}
+
+.subscribe-for-push {
+    all: unset;
 }
 
 @media(max-width:920px) {
