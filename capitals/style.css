@@ -9,7 +9,13 @@
 
 body {
     background: linear-gradient(to bottom, #bc77f0, #9ce6ff);
-    height: 100vh;
+    height: 200vh;
+}
+
+ul {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
 }
 
 h1 {
